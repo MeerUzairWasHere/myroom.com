@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MeerUzairWasHere/MyRoom.git"
+    "url": "git+https://github.com/MeerUzairWasHere/myroom.com.git"
   },
   "keywords": [
     "MyRoom"
@@ -16,9 +16,9 @@
   "author": "MeerUzairWasHere",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MeerUzairWasHere/MyRoom/issues"
+    "url": "https://github.com/MeerUzairWasHere/myroom.com/issues"
   },
-  "homepage": "https://github.com/MeerUzairWasHere/MyRoom#readme",
+  "homepage": "https://github.com/MeerUzairWasHere/myroom.com#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.2",
