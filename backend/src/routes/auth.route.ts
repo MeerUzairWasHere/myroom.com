@@ -3,6 +3,7 @@ import express, { Request, Response } from 'express'
 import User from '../models/user.model'
 import jwt from 'jsonwebtoken'
 import { check, validationResult } from 'express-validator'
+import { verifyToken } from '../middleware/auth.middleware';
 
 const router = express.Router()
 
@@ -40,6 +41,10 @@ router.post("/login", [check("email", "Email is required!").isEmail(), check("pa
         res.status(500).json({ msg: "something went wrong!" })
     }
 
+})
+
+router.get("/validate-token", verifyToken, (req: Request, res: Response) => {
+    res.status(200).send({ userId: req.userId })
 })
 
 export default router
