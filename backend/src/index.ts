@@ -5,14 +5,13 @@ import mongoose from "mongoose"
 //routes
 import userRoutes from './routes/users.route'
 import authRoutes from './routes/auth.route'
-
+import cookieParser from 'cookie-parser'
 
 const app = express();
 
 app.use(express.json())
-
+app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
-
 app.use(cors({
     origin: process.env.FRONTEND_URL,
     credentials: true
