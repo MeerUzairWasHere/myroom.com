@@ -18,8 +18,8 @@ const Register = () => {
 
     const mutation = useMutation(apiClient.register,{
         onSuccess:()=>{
-            toast.success('Registration Successful!');
-          navigate("/sign-in")
+          toast.success('Registration Successful!');
+          navigate("/")
         },
         onError:(error:Error)=>{
             console.log(error.message)
