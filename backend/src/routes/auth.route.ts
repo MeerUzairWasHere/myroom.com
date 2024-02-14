@@ -43,6 +43,20 @@ router.post("/login", [check("email", "Email is required!").isEmail(), check("pa
 
 })
 
+router.post("/logout", verifyToken, async (req: Request, res: Response) => {
+    try {
+        res.cookie("auth_token", "", {
+            httpOnly: true,
+            expires: new Date(Date.now()),
+        })
+        res.status(200).json({ msg: "user logged out" })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ msg: "something went wrong!" })
+    }
+
+})
+
 router.get("/validate-token", verifyToken, (req: Request, res: Response) => {
     res.status(200).send({ userId: req.userId })
 })

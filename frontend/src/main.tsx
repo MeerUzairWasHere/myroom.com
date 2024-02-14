@@ -8,8 +8,10 @@ import { AppContextProvider } from './context/AppContext.tsx';
 const queryClient =  new QueryClient({
   defaultOptions:{
     queries:{
-      retry:0
-    }
+      retry:0,
+      staleTime: 1000 * 60 * 5,
+    },
+    
   }
 })
 ReactDOM.createRoot(document.getElementById('root')!).render(
