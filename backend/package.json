@@ -6,7 +6,9 @@
   "scripts": {
     "server": "nodemon ./src/index.ts",
     "client": "cd .. && cd frontend && npm run dev",
-    "dev": "concurrently --kill-others-on-fail \" npm run server\" \" npm run client\""
+    "e2e":"cross-env DOTENV_CONFIG_PATH=.env.e2e nodemon",
+    "dev": "concurrently --kill-others-on-fail \" npm run server\" \" npm run client\"",
+    "test": "concurrently --kill-others-on-fail \" npm run e2e\" \" npm run client\""
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
     "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.2",
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
