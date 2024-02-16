@@ -20,10 +20,10 @@ app.use(cors({
 
 app.use(express.static(path.join(__dirname, "../../frontend/dist")))
 
-app.use("/api/v1/auth", authRoutes)
-app.use("/api/v1/users", userRoutes)
+app.use("/api/auth", authRoutes)
+app.use("/api/users", userRoutes)
 
-app.get("*", (req, res) => {
+app.get("*", (req: Request, res: Response) => {
     res.sendFile(path.resolve(__dirname, "../../frontend/dist", "index.html"));
 });
 
