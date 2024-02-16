@@ -6,6 +6,7 @@ import mongoose from "mongoose"
 import userRoutes from './routes/users.route'
 import authRoutes from './routes/auth.route'
 import cookieParser from 'cookie-parser'
+import path from 'path'
 
 const app = express();
 
@@ -17,9 +18,14 @@ app.use(cors({
     credentials: true
 }))
 
+app.use(express.static(path.join(__dirname, "../../frontend/dist")))
+
 app.use("/api/v1/auth", authRoutes)
 app.use("/api/v1/users", userRoutes)
 
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../../frontend/dist", "index.html"));
+});
 
 const start = async () => {
     try {
