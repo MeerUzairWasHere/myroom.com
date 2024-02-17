@@ -1,3 +1,14 @@
+# Welcome to myroom.com!
+
+Find your perfect room with ease on MyRoom Browse. Our platform allows you to browse, compare, and book accommodations hassle-free. With instant confirmations, secure payments, and 24/7 support, booking a room has never been easier. Your ideal stay awaits!
+
+Key Features:
+- Browse a wide selection of accommodations
+- Compare prices, amenities, and reviews
+- Book securely with instant confirmations
+- 24/7 customer support for any assistance needed
+
+
 # Setting Up the MERN Booking App
 
 This guide will walk you through the process of setting up the MERN Booking App on your local machine.
