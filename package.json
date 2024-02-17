@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev":"cd backend && npm run dev",
-    "bs":"cd frontend && npm run build && cd .. && cd backend && npm run build && npm run start"
+    "dev": "cd backend && npm run dev",
+    "bs": "cd frontend && npm run build && cd .. && cd backend && npm run build && npm run start",
+    "test": "cd backend && npm run test"
   },
   "author": "",
   "license": "ISC"
