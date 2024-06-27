@@ -10,6 +10,8 @@ import { v2 as cloudinary } from "cloudinary";
 import myHotelRoutes from "./routes/my-hotels";
 import hotelRoutes from "./routes/hotels";
 import bookingRoutes from "./routes/my-bookings";
+import axios from "axios";
+import cron from "node-cron";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -32,6 +34,10 @@ app.use(
 
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
+app.get("/api/v1/health", (req: Request, res: Response) => {
+  res.status(200).json({ msg: "Server is running!" });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/my-hotels", myHotelRoutes);
@@ -44,4 +50,16 @@ app.get("*", (req: Request, res: Response) => {
 
 app.listen(process.env.PORT, () => {
   console.log("server running on localhost: ", process.env.PORT);
+});
+
+// Schedule health check
+cron.schedule("*/14 * * * *", async () => {
+  try {
+    const response = await axios.get(
+      `https://myroom-com.onrender.com/api/v1/health`
+    );
+    console.log(`Health check successful: ${response.data.msg}`);
+  } catch (error: any) {
+    console.error(`Health check failed: ${error.message}`);
+  }
 });
