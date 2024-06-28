@@ -52,14 +52,14 @@ app.listen(process.env.PORT, () => {
   console.log("server running on localhost: ", process.env.PORT);
 });
 
-// Schedule health check
-cron.schedule("*/14 * * * *", async () => {
-  try {
-    const response = await axios.get(
-      `https://myroom-com.onrender.com/api/v1/health`
-    );
-    console.log(`Health check successful: ${response.data.msg}`);
-  } catch (error: any) {
-    console.error(`Health check failed: ${error.message}`);
-  }
-});
+// // Schedule health check
+// cron.schedule("*/14 * * * *", async () => {
+//   try {
+//     const response = await axios.get(
+//       `https://myroom-com.onrender.com/api/v1/health`
+//     );
+//     console.log(`Health check successful: ${response.data.msg}`);
+//   } catch (error: any) {
+//     console.error(`Health check failed: ${error.message}`);
+//   }
+// });
