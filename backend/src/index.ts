@@ -18,7 +18,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const MONGO_URI = process.env.MONGODB_CONNECTION_STRING!;
 
 const app = express();
 app.use(cookieParser());
