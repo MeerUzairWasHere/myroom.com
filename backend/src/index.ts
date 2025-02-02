@@ -12,6 +12,7 @@ import hotelRoutes from "./routes/hotels";
 import bookingRoutes from "./routes/my-bookings";
 import rateLimiter from 'express-rate-limit'
 
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -30,7 +31,13 @@ app.use(
     credentials: true,
   })
 );
-
+app.set("trust proxy", 1);
+app.use(
+  rateLimiter({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 60,
+  })
+);
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 app.get("/api/v1/health", (req: Request, res: Response) => {
