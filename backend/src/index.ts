@@ -59,7 +59,7 @@ app.listen(process.env.PORT, () => {
 const connectDB = async (uri: string) => {
   try {
     console.log(uri);
-    await mongoose.connect(uri);
+    await mongoose.createConnection(uri);
     console.log("MongoDB connected...");
   } catch (error) {
     console.log(error);
