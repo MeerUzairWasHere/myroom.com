@@ -10,8 +10,7 @@ import { v2 as cloudinary } from "cloudinary";
 import myHotelRoutes from "./routes/my-hotels";
 import hotelRoutes from "./routes/hotels";
 import bookingRoutes from "./routes/my-bookings";
-import rateLimiter from 'express-rate-limit'
-
+import rateLimiter from "express-rate-limit";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -19,7 +18,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
+const MONGO_URI = process.env.MONGODB_CONNECTION_STRING!;
 
 const app = express();
 app.use(cookieParser());
@@ -58,3 +57,25 @@ app.listen(process.env.PORT, () => {
   console.log("server running on localhost: ", process.env.PORT);
 });
 
+const connectDB = async (uri: string) => {
+  try {
+    await mongoose.connect(uri);
+    console.log("MongoDB connected...");
+  } catch (error) {
+    console.log(error);
+  }
+};
+const PORT = process.env.PORT || 5000;
+
+const start = async () => {
+  try {
+    await connectDB(process.env.MONGO_URI!);
+
+    app.listen(PORT, () => {
+      console.log("Server is running on port: " + PORT + "...");
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+start();
