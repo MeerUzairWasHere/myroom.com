@@ -18,7 +18,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
@@ -58,6 +57,7 @@ app.listen(process.env.PORT, () => {
 
 const connectDB = async (uri: string) => {
   try {
+    console.log(uri);
     await mongoose.connect(uri);
     console.log("MongoDB connected...");
   } catch (error) {
