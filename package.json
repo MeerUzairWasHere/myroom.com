@@ -4,13 +4,16 @@
   "description": "This guide will walk you through the process of setting up the MERN Booking App on your local machine.",
   "main": "index.js",
   "scripts": {
-    "startlocal":"cd frontend && npm run build && cd .. && cd backend && npm run build && npm run start",
-     "frontend":"cd frontend && npm run dev",
-     "backend":"cd backend && npm run dev",
-     "dev-setup":"cd backend && npm i && cd .. && cd frontend && npm i",
-     "prod-setup":"cd frontend && npm i && npm run build && cd .. && cd backend && npm i && npm run build",
-     "start":"cd backend && npm run start"
+    "startlocal": "cd frontend && npm run build && cd .. && cd backend && npm run build && npm run start",
+    "frontend": "cd frontend && npm run dev",
+    "backend": "cd backend && npm run dev",
+    "dev-setup": "cd backend && npm i && cd .. && cd frontend && npm i",
+    "prod-setup": "cd frontend && npm i && npm run build && cd .. && cd backend && npm i && npm run build",
+    "start": "cd backend && npm run start"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
 }
